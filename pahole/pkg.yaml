@@ -33,10 +33,10 @@ steps:
       - |
         mkdir build && cd build
 
-        cmake -DCMAKE_INSTALL_PREFIX=/rootfs \
+        cmake -DCMAKE_INSTALL_PREFIX=${TOOLCHAIN} \
               -DCMAKE_MODULE_PATH=/usr/lib/cmake \
+              -DCMAKE_INSTALL_RPATH=${TOOLCHAIN}/lib \
               -D__LIB=lib \
-              -DCMAKE_INSTALL_PREFIX=/usr \
               ..
     install:
       - |
